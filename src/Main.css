@@ -1,6 +1,6 @@
 .bars{
     margin: 0 2px;
-    width: .5vw;
+    width: .35vw;
     display: inline-block;
     /* flex-direction: row; */
     background-color: aquamarine;

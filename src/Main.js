@@ -53,20 +53,17 @@ function Main(){
         setStart(false);
     }
 
-    const initial = async()=>{
-        await sleep(1000);
-        changeArraysize();
-    }
-
     useEffect(()=>{
         generateNewArray();
-        // initial();
     },[arraysize]);
 
     function changeArraysize(){
-        let as = prompt("Please enter the array size between 10 and 100");
+        if(start){
+            return;
+        }
+        let as = prompt("Please enter the array size between 10 and 150");
         console.log("as: "+as);
-        if(as.length==0){
+        if(as.length==0 || as==null){
             changeArraysize();
         }
         setArraysize(as);
