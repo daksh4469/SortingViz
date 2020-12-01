@@ -3,6 +3,7 @@ import './Main.css'
 function Main(){
     const [array,setArray] = useState([]);
     const [start,setStart] = useState(false);
+    const [arraysize,setArraysize] = useState();
 
     const sleep = (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -13,7 +14,7 @@ function Main(){
             return;
         }
         let newarray = [];
-        for(let i = 0;i<100;i++){
+        for(let i = 0;i<arraysize;i++){
             newarray.push(Math.floor(Math.random()*(991)+10));
         }
         setArray(newarray);
@@ -27,8 +28,8 @@ function Main(){
         let temp;
         setStart(true);
         let i1 = 0,i2 = 0;
-        for(let i = 0;i<99;i++){
-            for(let j = 0;j<99-i;j++){
+        for(let i = 0;i<arraysize-1;i++){
+            for(let j = 0;j<arraysize-1-i;j++){
                 if(array[j]>array[j+1]){
                     temp = array[j];
                     array[j] = array[j+1];
@@ -52,14 +53,29 @@ function Main(){
         setStart(false);
     }
 
+    const initial = async()=>{
+        await sleep(1000);
+        changeArraysize();
+    }
+
     useEffect(()=>{
         generateNewArray();
+        initial();
     },[]);
+
+    function changeArraysize(){
+        let as = prompt("Please enter the array size between 20 and 100");
+        console.log("as: "+as);
+        setArraysize(as);
+        generateNewArray();
+        generateNewArray();
+    }
 
     return (
         <div>
             <h1>SortingViz</h1>
             <button onClick={generateNewArray} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Generate New Array</button>
+            <button onClick={changeArraysize} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Change Array Size</button>
             <button onClick={arraysort} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Sort</button>
             <div className="array-container">
                 {
