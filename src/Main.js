@@ -46,6 +46,7 @@ function Main(){
                 document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
                 document.getElementsByClassName('bars')[i2].style.backgroundColor = "aquamarine";
             }
+            // document.getElementsByClassName('bars')[99].style.backgroundColor = "blue";
             await sleep(75);
         }
         setStart(false);
