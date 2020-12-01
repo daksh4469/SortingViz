@@ -3,7 +3,7 @@ import './Main.css'
 function Main(){
     const [array,setArray] = useState([]);
     const [start,setStart] = useState(false);
-    const [arraysize,setArraysize] = useState();
+    const [arraysize,setArraysize] = useState(50);
 
     const sleep = (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -43,7 +43,7 @@ function Main(){
                     i1 = j;
                     // document.getElementsByClassName('bars')[j+1].style.backgroundColor = "aquamarine";
                 }
-                await sleep(20);
+                await sleep(2000/arraysize);
                 document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
                 document.getElementsByClassName('bars')[i2].style.backgroundColor = "aquamarine";
             }
@@ -60,14 +60,16 @@ function Main(){
 
     useEffect(()=>{
         generateNewArray();
-        initial();
-    },[]);
+        // initial();
+    },[arraysize]);
 
     function changeArraysize(){
-        let as = prompt("Please enter the array size between 20 and 100");
+        let as = prompt("Please enter the array size between 10 and 100");
         console.log("as: "+as);
+        if(as.length==0){
+            changeArraysize();
+        }
         setArraysize(as);
-        generateNewArray();
         generateNewArray();
     }
 
