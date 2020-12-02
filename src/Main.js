@@ -21,6 +21,9 @@ function Main(){
         }
         setArray(newarray);
         console.log(array);
+        for(let i = 0;i<array.length;i++){
+            document.getElementsByClassName('bars')[i].style.backgroundColor = "aquamarine";
+        }
     }
 
     const arraysort = async()=>{
@@ -54,14 +57,21 @@ function Main(){
                     document.getElementsByClassName('bars')[j+1].style.backgroundColor = "aquamarine";
                 }
                 await sleep(2000/arraysize);
-                document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
-                document.getElementsByClassName('bars')[i2].style.backgroundColor = "aquamarine";
+                if(document.getElementsByClassName('bars')[i1].style.backgroundColor!=="blue"){
+                    document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
+                }
+                if(document.getElementsByClassName('bars')[i2].style.backgroundColor!=="blue"){
+                    document.getElementsByClassName('bars')[i2].style.backgroundColor = "aquamarine";
+                }
                 // document.getElementsByClassName('bars')[i2].style.backgroundColor = "royalblue";
             }
-            document.getElementsByClassName('bars')[i2].style.backgroundColor = "royalblue";
+            for(let k = arraysize-1;k>=arraysize-i-1;k--){
+                document.getElementsByClassName('bars')[k].style.backgroundColor = "blue"; 
+            }
             // document.getElementsByClassName('bars')[99].style.backgroundColor = "blue";
             await sleep(75);
         }
+        document.getElementsByClassName('bars')[0].style.backgroundColor = "blue";
         setStart(false);
         setMsg("Array is Sorted.");
     }
