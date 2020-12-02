@@ -86,7 +86,7 @@ function Main(){
         }
         let as = prompt("Please enter the array size between 10 and 150");
         console.log("as: "+as);
-        if(as.length==0 || as==null || as<10 || as>150){
+        if(as==null || as.length==0 || as<10 || as>150){
             changeArraysize();
         }
         setArraysize(as);
