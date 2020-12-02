@@ -54,7 +54,7 @@ function Main(){
             await sleep(75);
         }
         setStart(false);
-        setMsg("SORTED.....now get OUT!!!");
+        setMsg("Array is Sorted.");
     }
 
     useEffect(()=>{

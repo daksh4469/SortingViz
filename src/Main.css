@@ -9,8 +9,12 @@
     border-top-right-radius: 10px;
 }
 
-.p{
+p{
     color: green;
+    position: absolute;
+    z-index: 2;
+    left: 45%;
+    font-size: 3vh;
 }
 
 .array-container{
