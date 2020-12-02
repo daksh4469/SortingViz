@@ -16,6 +16,7 @@ function Main(props){
     const [start,setStart] = useState(false);
     const [arraysize,setArraysize] = useState(75);
     const [msg,setMsg] = useState("");
+    const [mode,setMode] = useState(false);
 
     const sleep = (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -108,11 +109,20 @@ function Main(props){
     }
 
     function darkmode(){
-        
-        document.getElementsByClassName('array-container')[0].style.backgroundColor = "black";
-        document.getElementsByClassName('window')[0].style.backgroundColor = "black";
-        document.getElementsByClassName('heading')[0].style.color = "white";
-        document.getElementsByClassName('dark')[0].style.color = "white";
+        if(!mode){
+            setMode(true);
+            document.getElementsByClassName('array-container')[0].style.backgroundColor = "black";
+            document.getElementsByClassName('window')[0].style.backgroundColor = "black";
+            document.getElementsByClassName('heading')[0].style.color = "white";
+            document.getElementsByClassName('dark')[0].style.color = "white";
+        }
+        else{
+            setMode(false);
+            document.getElementsByClassName('array-container')[0].style.backgroundColor = "white";
+            document.getElementsByClassName('window')[0].style.backgroundColor = "white";
+            document.getElementsByClassName('heading')[0].style.color = "black";
+            document.getElementsByClassName('dark')[0].style.color = "black";
+        }
     }
 
     return (
@@ -123,7 +133,7 @@ function Main(props){
             <Button className={classes.button} variant="contained" onClick={generateNewArray} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Generate New Array</Button>
             <Button variant="contained" color="secondary" onClick={changeArraysize} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Change Array Size</Button>
             <Button color="primary" variant="contained" onClick={arraysort} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Sort</Button>
-            <Button onClick={darkmode} className="dark" color="primary">Dark Mode</Button>
+            <Button onClick={darkmode} className="dark" color="primary">{mode ? "Light Mode" : "Dark Mode"}</Button>
             </Box>
             </div>
             <p>{msg}</p>
