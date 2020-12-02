@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Main.css';
+import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-function Main(){
+
+const useStyles = makeStyles(theme => ({
+    root: {
+      width: "70vw",
+    },
+  }));
+
+function Main(props){
+    const classes = useStyles();
     const [array,setArray] = useState([]);
     const [start,setStart] = useState(false);
     const [arraysize,setArraysize] = useState(75);
@@ -102,9 +111,11 @@ function Main(){
         <div>
             <h1>SortingViz</h1>
             <div className="buttons">
-            <Button variant="contained" onClick={generateNewArray} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Generate New Array</Button>
+            <Box mt={2}>
+            <Button className={classes.button} variant="contained" onClick={generateNewArray} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Generate New Array</Button>
             <Button variant="contained" color="secondary" onClick={changeArraysize} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Change Array Size</Button>
             <Button color="primary" variant="contained" onClick={arraysort} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Sort</Button>
+            </Box>
             </div>
             <p>{msg}</p>
             <div className="array-container">
