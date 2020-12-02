@@ -33,6 +33,9 @@ function Main(){
         let i1 = 0,i2 = 0;
         for(let i = 0;i<arraysize-1;i++){
             for(let j = 0;j<arraysize-1-i;j++){
+                document.getElementsByClassName('bars')[j].style.backgroundColor = "royalblue";
+                document.getElementsByClassName('bars')[j+1].style.backgroundColor = "royalblue";
+                await sleep(1000/arraysize);
                 if(array[j]>array[j+1]){
                     temp = array[j];
                     array[j] = array[j+1];
@@ -45,6 +48,10 @@ function Main(){
                     i2 = j+1;
                     i1 = j;
                     // document.getElementsByClassName('bars')[j+1].style.backgroundColor = "aquamarine";
+                }
+                else{
+                    document.getElementsByClassName('bars')[j].style.backgroundColor = "aquamarine";
+                    document.getElementsByClassName('bars')[j+1].style.backgroundColor = "aquamarine";
                 }
                 await sleep(2000/arraysize);
                 document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
