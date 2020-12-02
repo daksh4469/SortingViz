@@ -56,7 +56,9 @@ function Main(){
                 await sleep(2000/arraysize);
                 document.getElementsByClassName('bars')[i1].style.backgroundColor = "aquamarine";
                 document.getElementsByClassName('bars')[i2].style.backgroundColor = "aquamarine";
+                // document.getElementsByClassName('bars')[i2].style.backgroundColor = "royalblue";
             }
+            document.getElementsByClassName('bars')[i2].style.backgroundColor = "royalblue";
             // document.getElementsByClassName('bars')[99].style.backgroundColor = "blue";
             await sleep(75);
         }
@@ -79,6 +81,9 @@ function Main(){
         }
         setArraysize(as);
         generateNewArray();
+        for(let i = 0;i<array.length;i++){
+            document.getElementsByClassName('bars')[i].style.backgroundColor = "aquamarine";
+        }
     }
 
     return (
