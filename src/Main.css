@@ -17,6 +17,7 @@ h1{
 }
 
 p{
+    padding: 10px 0 0 0;
     color: rgb(0, 177, 0);
     position: absolute;
     z-index: 2;
@@ -26,7 +27,7 @@ p{
 }
 
 .heading{
-    padding: 15px 0;
+    padding: 20px 0 15px 0;
 }
 
 .array-container{
@@ -37,3 +38,7 @@ p{
     display: flex;
     justify-content: space-evenly;
 } */
+
+.window{
+    height: 100vh;
+}
