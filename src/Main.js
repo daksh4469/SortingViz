@@ -107,14 +107,23 @@ function Main(props){
         }
     }
 
+    function darkmode(){
+        
+        document.getElementsByClassName('array-container')[0].style.backgroundColor = "black";
+        document.getElementsByClassName('window')[0].style.backgroundColor = "black";
+        document.getElementsByClassName('heading')[0].style.color = "white";
+        document.getElementsByClassName('dark')[0].style.color = "white";
+    }
+
     return (
-        <div>
-            <h1>SortingViz</h1>
+        <div className="window">
+            <h1 className="heading">SortingViz</h1>
             <div className="buttons">
             <Box mt={2}>
             <Button className={classes.button} variant="contained" onClick={generateNewArray} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Generate New Array</Button>
             <Button variant="contained" color="secondary" onClick={changeArraysize} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Change Array Size</Button>
             <Button color="primary" variant="contained" onClick={arraysort} style={start ? {opacity: "0.5"} : {opacity: "1"}}>Sort</Button>
+            <Button onClick={darkmode} className="dark" color="primary">Dark Mode</Button>
             </Box>
             </div>
             <p>{msg}</p>
