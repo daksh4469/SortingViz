@@ -140,7 +140,7 @@ function Main(props){
             <div className="array-container">
                 {
                     array.map((num)=>(
-                        <div className="bars" style={{height: `${num/2}px`}}>
+                        <div className="bars" style={{height: `${num/2}px`, width: `${30/array.length}vw`}}>
                             {/* {num} */}
                         </div>
                     ))
