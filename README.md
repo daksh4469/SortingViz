@@ -1,10 +1,6 @@
 # SortingViz
 This is a sorting visualizer which uses bubble sort algorithm. Visit the [site](https://daksh4469.github.io/SortingViz/)
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
